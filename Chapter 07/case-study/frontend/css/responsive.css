@@ -1,0 +1,267 @@
+/* TaskFlow - Responsive Styles */
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+  .filter-content {
+    flex-wrap: nowrap;
+  }
+  
+  .filter-search {
+    max-width: 300px;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .task-board {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .stats-content {
+    justify-content: center;
+  }
+  
+  .modal {
+    padding: var(--spacing-2xl);
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .header-content,
+  .filter-content,
+  .stats-content {
+    padding-left: var(--spacing-2xl);
+    padding-right: var(--spacing-2xl);
+  }
+  
+  .task-board {
+    padding-left: var(--spacing-2xl);
+    padding-right: var(--spacing-2xl);
+  }
+}
+
+/* Mobile-specific styles */
+@media (max-width: 767px) {
+  .app-title {
+    font-size: var(--font-size-xl);
+  }
+  
+  .title-icon {
+    font-size: var(--font-size-2xl);
+  }
+  
+  .header-content {
+    padding: var(--spacing-sm) var(--spacing-md);
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    align-items: stretch;
+  }
+  
+  .app-navigation {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .filter-content {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md);
+  }
+  
+  .filter-group {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--spacing-xs);
+  }
+  
+  .filter-search {
+    min-width: auto;
+  }
+  
+  .stats-content {
+    flex-direction: column;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md);
+  }
+  
+  .stat-item {
+    justify-content: space-between;
+    padding: var(--spacing-sm);
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    border: var(--border-width) solid var(--gray-200);
+  }
+  
+  .task-board {
+    grid-template-columns: 1fr;
+    padding: var(--spacing-md);
+    gap: var(--spacing-md);
+  }
+  
+  .board-column {
+    padding: var(--spacing-sm);
+  }
+  
+  .column-title {
+    font-size: var(--font-size-base);
+  }
+  
+  .task-card {
+    padding: var(--spacing-sm);
+  }
+  
+  .task-actions {
+    flex-direction: column;
+    gap: var(--spacing-xs);
+  }
+  
+  .task-action-btn {
+    flex: none;
+  }
+  
+  .modal {
+    padding: var(--spacing-md);
+    align-items: flex-end;
+  }
+  
+  .modal-content {
+    max-height: 85vh;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    animation: modalSlideUp 0.3s ease-out;
+  }
+  
+  .modal-header,
+  .modal-body,
+  .modal-actions,
+  .task-form {
+    padding: var(--spacing-md);
+  }
+  
+  .form-actions {
+    flex-direction: column-reverse;
+  }
+  
+  .form-actions .btn {
+    width: 100%;
+  }
+}
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575px) {
+  .task-title {
+    font-size: var(--font-size-sm);
+  }
+  
+  .task-description {
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+  }
+  
+  .task-priority {
+    font-size: 10px;
+    padding: 2px 6px;
+  }
+  
+  .column-icon {
+    display: none;
+  }
+  
+  .btn {
+    font-size: var(--font-size-xs);
+    padding: var(--spacing-xs) var(--spacing-sm);
+  }
+}
+
+/* Landscape orientation */
+@media (max-width: 767px) and (orientation: landscape) {
+  .modal {
+    align-items: center;
+  }
+  
+  .modal-content {
+    border-radius: var(--border-radius-lg);
+    animation: modalSlideIn 0.3s ease-out;
+  }
+  
+  .task-board {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .loading-spinner {
+    border-width: 3px;
+  }
+}
+
+/* Hover support */
+@media (hover: hover) {
+  .task-card:hover .task-actions {
+    opacity: 1;
+  }
+  
+  .task-actions {
+    opacity: 0.7;
+    transition: var(--transition);
+  }
+}
+
+/* No hover support (touch devices) */
+@media (hover: none) {
+  .task-actions {
+    opacity: 1;
+  }
+  
+  .task-card {
+    cursor: default;
+  }
+  
+  .task-card:hover {
+    transform: none;
+  }
+}
+
+/* Print styles */
+@media print {
+  .app-header,
+  .filter-bar,
+  .statistics-panel,
+  .task-actions,
+  .modal {
+    display: none !important;
+  }
+  
+  .task-board {
+    display: block;
+    padding: 0;
+  }
+  
+  .board-column {
+    break-inside: avoid;
+    margin-bottom: var(--spacing-lg);
+    box-shadow: none;
+    border: var(--border-width) solid var(--gray-300);
+  }
+  
+  .task-card {
+    break-inside: avoid;
+    box-shadow: none;
+    border: var(--border-width) solid var(--gray-300);
+  }
+}
+
+/* Mobile slide-up animation */
+@keyframes modalSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
